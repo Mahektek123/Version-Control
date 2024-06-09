@@ -4,6 +4,7 @@ import Version1 from "../Version1/page"
 import Version2 from "../Version2/page"
 import Cookies from 'js-cookie';
 import Statsig from 'statsig-js';
+import $ from 'jquery';
 
 const Page = () => {
 

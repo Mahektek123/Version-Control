@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
+import $ from 'jquery';
 
 const Card = (Props: any) => {
     const bgGray = () => {
