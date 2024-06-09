@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import Header from "../components/Header"
 import Footer from "../components/Footer"
 import Card from "../components/Card"
@@ -43,7 +43,7 @@ interface ImageFile {
 }
 
 
-const page = (Props: any) => {
+const Page = (Props: any) => {
 
     const [HtmlData, setHtmlData] = useState<HtmlContent>()
 
@@ -52,17 +52,21 @@ const page = (Props: any) => {
         accessToken: "4ZJWSRN5SbOdXvqh3efQAqWyVzpKFmCoWVA3hQlMit0"
     })
 
-    const fetchData = async (): Promise<HtmlContent> => {
-        const dataEntry = (await client.getEntries({ content_type: 'version' }))
-        return dataEntry
-    };
+    // const fetchData = async (): Promise<HtmlContent> => {
+    //     const dataEntry = (await client.getEntries({ content_type: 'version' }))
+    //     return dataEntry
+    // };
+
+    const fetchData = useCallback(async (): Promise<HtmlContent> => {
+        const dataEntry = await client.getEntries({ content_type: 'version' });
+        return dataEntry;
+    }, [client]);
 
     useEffect(() => {
-        fetchData()
-            .then((res) => {
+        fetchData().then((res) => {
                 setHtmlData(res);
             })
-    }, []);    
+    }, [fetchData]);    
 
 
     return (
@@ -92,4 +96,4 @@ const page = (Props: any) => {
     )
 }
 
-export default page
+export default Page

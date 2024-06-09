@@ -1,16 +1,11 @@
 "use client"
 import React, { useEffect, useState } from 'react'
-import Version1 from "../Version1/page"
-import Version2 from "../Version2/page"
+import Version1 from "../Version1/Page"
+import Version2 from "../Version2/Page"
 import Cookies from 'js-cookie';
-import {
-    StatsigProvider,
-    StatsigUser,
-    useGate,
-  } from "statsig-react";
 import Statsig from 'statsig-js';
 
-const page = () => {
+const Page = () => {
 
     const [version, setVersion] = useState<string>();
 
@@ -59,4 +54,4 @@ const page = () => {
     }
 }
 
-export default page
+export default Page
