@@ -1,0 +1,13 @@
+Task - Build and deploy a NextJs app to Vercel using the following criteria:
+
+Requirements:
+
+Use the App router. Implement Catch-all Segments for generic routing.
+The slugs must be set in Contentful.
+
+Deliverables:
+Github repo url to the sensibly documented codebase.
+Vercel deployed url.
+Screenshots of content models and content pieces in Contentful.
+Screenshots of Statsig where appropriate.
+No errors or console warnings when running dev locally. 

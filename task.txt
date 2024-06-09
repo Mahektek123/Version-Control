@@ -1,0 +1,33 @@
+Task - Build and deploy a NextJs app to Vercel using the following criteria:
+
+Stack - NextJs (Use server components where relevant), TS, Vanila CSS (Styling should be responsive), Contentful CMS, Statsig AB Testing (https://statsig.com/)Requirements:
+
+Use the App router. Implement Catch-all Segments for generic routing.
+The slugs must be set in Contentful.
+All pages must have a global header that contains the title of the page and a Main area for page-specific components/content.
+
+Use redux to store the following appState:
+{
+isLoaded:boolean // default false, set to true after the page has fully loaded. Displays the sentence "The has fully loaded." in the global footer.
+}
+
+For content, setup content-models for pages, cards (model details ahead) and assets in Contentful CMS.
+Add a page with the slug "/ab-test-card" with just a card in it. Title of the page = "AB Testing Card using Statsig"
+
+Next implement AB Testing using https://statsig.com/.
+
+Version A features:Card should have the following features (in the order mentioned):
+Title "This is Card A", description "This card will turn black on hover.", thumbnail image of a peacock and change background colour to black on hover.
+
+Version B features:
+Thumbnail image of a landscape, title "This is Card B", description "This card will turn light grey on hover.",  and change background colour to light grey on hover.
+
+Serve the versions alternatively, All even visitors get Version A, others get B.
+slug will always stay “/ab-test-card"
+
+Deliverables:
+Github repo url to the sensibly documented codebase.
+Vercel deployed url.
+Screenshots of content models and content pieces in Contentful.
+Screenshots of Statsig where appropriate.
+No errors or console warnings when running dev locally.
