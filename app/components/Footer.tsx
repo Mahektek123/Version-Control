@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { setLoaded } from '../redux/isLoadedSlice';
 import { RootState } from '../redux/store';
+import jq from 'jquery';
 
 const Footer = () => {
 
@@ -22,7 +23,7 @@ const Footer = () => {
     }, [dispatch]);
 
     if(isLoaded){
-        $(".footer").html("<h3>The page has fully loaded...</h3>")
+        jq(".footer").html("<h3>The page has fully loaded...</h3>")
     }
 
     return (
