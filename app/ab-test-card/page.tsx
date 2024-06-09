@@ -4,7 +4,7 @@ import Version1 from "../Version1/page"
 import Version2 from "../Version2/page"
 import Cookies from 'js-cookie';
 import Statsig from 'statsig-js';
-import $ from 'jquery';
+import jq from 'jquery';
 
 const Page = () => {
 
@@ -13,8 +13,8 @@ const Page = () => {
     const render = () => {
         let showLargerText = Statsig.checkGate("show_larger_text")
         if(showLargerText){
-            $(".container").css({fontSize: "20px", color: "blue", boxShadow: "10px 10px 5px gray"})
-            // $("html").css({backgroundColor: "black"})
+            jq(".container").css({fontSize: "20px", color: "blue", boxShadow: "10px 10px 5px gray"})
+            // jq("html").css({backgroundColor: "black"})
         }
     }
 
@@ -28,7 +28,7 @@ const Page = () => {
             })
         // }
         
-        $("title").text("AB Testing Card using Statsig")
+        jq("title").text("AB Testing Card using Statsig")
 
         if (!visitorId) {
             visitorId = Math.floor(Math.random() * 100000).toString();

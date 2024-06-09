@@ -1,6 +1,6 @@
 "use client"
 import { useEffect, useState } from 'react';
-import $ from 'jquery';
+import jq from 'jquery';
 
 export default function Home() {
 
@@ -11,7 +11,7 @@ export default function Home() {
 
   useEffect(() => {
     window.location.href = "/ab-test-card"
-    $("title").text("AB Testing Card using Statsig")
+    jq("title").text("AB Testing Card using Statsig")
   }, []);  
 
   

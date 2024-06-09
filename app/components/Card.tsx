@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
-import $ from 'jquery';
+import jq from 'jquery';
 
 const Card = (Props: any) => {
     const bgGray = () => {
-        $(".container").addClass("bgGray")
+        jq(".container").addClass("bgGray")
     }
     const removeGray = () => {
-        $(".container").removeClass("bgGray")
+        jq(".container").removeClass("bgGray")
     }
 
     const turnBlack = () => {
-        $(".container").addClass("bgblack")
+        jq(".container").addClass("bgblack")
     }
     const removeBlack = () => {
-        $(".container").removeClass("bgblack")
+        jq(".container").removeClass("bgblack")
     }
     
 
