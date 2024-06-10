@@ -1,10 +1,9 @@
 "use client"
 import React, { useEffect, useState } from 'react'
-import Version1 from "../Version1/page"
-import Version2 from "../Version2/page"
+import Version1 from "../Version1/Page"
+import Version2 from "../Version2/Page"
 import Cookies from 'js-cookie';
 import Statsig from 'statsig-js';
-import jq from 'jquery';
 
 const Page = () => {
 
@@ -12,23 +11,25 @@ const Page = () => {
 
     const render = () => {
         let showLargerText = Statsig.checkGate("show_larger_text")
-        if(showLargerText){
-            jq(".container").css({fontSize: "20px", color: "blue", boxShadow: "10px 10px 5px gray"})
-            // jq("html").css({backgroundColor: "black"})
+        let container = document.getElementsByClassName("container")
+        if (showLargerText) {
+            let ele = container[0] as HTMLElement
+            ele.style.color = "blue"
+            ele.style.fontSize = "20px"
+            ele.style.boxShadow = "10px 10px 5px gray"
         }
     }
 
-    
     useEffect(() => {
         let visitorId = Cookies.get('visitorId');
-        
-        // window.onload = () => {
-            Statsig.initialize("client-gPRbvx5iGH9S0EpIWiImP9ftAgFbO4b0zDRwEsRbCvh",{userID: "prP0oFjXWhdR96l1dev9z"}).then(() => {
-                render()
-            })
-        // }
-        
-        jq("title").text("AB Testing Card using Statsig")
+
+        Statsig.initialize("client-gPRbvx5iGH9S0EpIWiImP9ftAgFbO4b0zDRwEsRbCvh", { userID: "prP0oFjXWhdR96l1dev9z" }).then(() => {
+            render()
+        })
+        const title = document.getElementsByTagName("title")
+        let ele = title[0] as HTMLElement
+        ele.innerText = "AB Testing Card using Statsig"
+
 
         if (!visitorId) {
             visitorId = Math.floor(Math.random() * 100000).toString();
@@ -42,13 +43,13 @@ const Page = () => {
     if (version === "version1") {
         return (
             <>
-                <Version1 isEven={true}/>
+                <Version1 isEven={true} />
             </>
         )
     } else {
         return (
             <>
-                <Version2 isEven={false} w={300}/>
+                <Version2 isEven={false} w={300} />
             </>
         )
 

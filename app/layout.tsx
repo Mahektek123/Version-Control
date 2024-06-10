@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./redux/provider";
-import $ from 'jquery';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,7 +18,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-      {/* <script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossOrigin="anonymous"></script> */}
       </head>
       <body className={inter.className}>
         <Providers>{children}</Providers>

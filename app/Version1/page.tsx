@@ -4,7 +4,6 @@ import Header from "../components/Header"
 import Footer from "../components/Footer"
 import Card from "../components/Card"
 import { createClient } from "contentful"
-import $ from 'jquery';
 
 interface HtmlContent {
     items?: MainContent[]
@@ -52,11 +51,6 @@ const Page = (Props: any) => {
         space: "kp0x19lqk3lm",
         accessToken: "4ZJWSRN5SbOdXvqh3efQAqWyVzpKFmCoWVA3hQlMit0"
     })
-
-    // const fetchData = async (): Promise<HtmlContent> => {
-    //     const dataEntry = (await client.getEntries({ content_type: 'version' }))
-    //     return dataEntry
-    // };
 
     const fetchData = useCallback(async (): Promise<HtmlContent> => {
         const dataEntry = await client.getEntries({ content_type: 'version' });
