@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Image from 'next/image'
 
 const Card = (Props: any) => {
@@ -19,10 +19,9 @@ const Card = (Props: any) => {
     }
     
 
-    if (Props.isEven){
         return (
             <>
-                <div className='container' onMouseEnter={turnBlack} onMouseLeave={removeBlack}>
+                <div className='container' onMouseEnter={ Props.isEven ? turnBlack : bgGray} onMouseLeave={ Props.isEven ? removeBlack : removeGray}>
                     <div className='CardTitle'>
                         <h2><b> {Props.Title}</b></h2>
                     </div>
@@ -35,23 +34,6 @@ const Card = (Props: any) => {
                 </div>
             </>
         )
-    } else {
-        return (    
-            <>
-                <div className='container' onMouseEnter={bgGray} onMouseLeave={removeGray}>
-                    <div className='CardImg'>
-                        <Image priority src={Props.Img} width={Props.w} height={150} alt="Peacock Image"></Image>
-                    </div>
-                    <div className='CardTitle'>
-                        <h2><b> {Props.Title}</b></h2>
-                    </div>
-                    <div className='CardDesc'>
-                        <p>{Props.Desc}</p>
-                    </div>
-                </div>
-            </>
-        )
-    }
 }
 
 export default Card

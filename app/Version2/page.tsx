@@ -51,11 +51,6 @@ const Page = (Props: any) => {
         accessToken: "4ZJWSRN5SbOdXvqh3efQAqWyVzpKFmCoWVA3hQlMit0"
     })
 
-    // const fetchData = async (): Promise<HtmlContent> => {
-    //     const dataEntry = (await client.getEntries({ content_type: 'version' }))
-    //     return dataEntry
-    // };
-
     const fetchData = useCallback(async (): Promise<HtmlContent> => {
         const dataEntry = await client.getEntries({ content_type: 'version' });
         return dataEntry;

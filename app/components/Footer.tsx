@@ -21,16 +21,10 @@ const Footer = () => {
       }
     }, [dispatch]);
 
-    if(isLoaded){
-      const footer = document.getElementsByClassName("footer")
-      let ele = footer[0] as HTMLElement
-      ele.innerHTML = "<h3>The page has fully loaded...</h3>"
-    }
-
     return (
         <>
             <div className='footer'>
-                
+                <h3>{isLoaded ? "The page has fully loaded..." : "Loading..."}</h3>
             </div>
         </>
     )
