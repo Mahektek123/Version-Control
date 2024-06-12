@@ -5,17 +5,17 @@ const Card = (Props: any) => {
     const container = document.getElementsByClassName("container")
     let ele = container[0] as HTMLElement
     const bgGray = () => {
-        ele.classList.add("bgGray")
+        ele?.classList?.add("bgGray")
     }
     const removeGray = () => {
-        ele.classList.remove("bgGray")
+        ele?.classList?.remove("bgGray")
     }
 
     const turnBlack = () => {
-        ele.classList.add("bgblack")
+        ele?.classList?.add("bgblack")
     }
     const removeBlack = () => {
-        ele.classList.remove("bgblack")
+        ele?.classList?.remove("bgblack")
     }
     
 
