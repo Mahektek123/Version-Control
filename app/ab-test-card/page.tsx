@@ -1,7 +1,7 @@
 "use client"
 import React, { useEffect, useState } from 'react'
-import Version1 from "../Version1/Page"
-import Version2 from "../Version2/Page"
+import Version1 from "../Version1/page"
+import Version2 from "../Version2/page"
 import Cookies from 'js-cookie';
 import Statsig from 'statsig-js';
 
