@@ -14,9 +14,9 @@ const Page = () => {
         let container = document.getElementsByClassName("container")
         if (showLargerText) {
             let ele = container[0] as HTMLElement
-            // ele.style.color = "blue"
-            // ele.style.fontSize = "20px"
-            // ele.style.boxShadow = "10px 10px 5px gray"
+            ele.style.color = "blue"
+            ele.style.fontSize = "20px"
+            ele.style.boxShadow = "10px 10px 5px gray"
         }
     }
 
