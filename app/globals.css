@@ -66,11 +66,11 @@ html, body{
     margin: 0 0 20px 0;
 }
 
-.true:hover{
+.bgblack{
     background-color: black;
     color: white;
 }
 
-.false:hover{
+.bgGray{
     background-color: lightgray;
 }

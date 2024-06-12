@@ -1,8 +1,7 @@
-'use client'
+'use client';
 import React, { useCallback, useEffect, useState } from 'react'
-import Header from "../components/Header"
-import Footer from "../components/Footer"
-import Card from "../components/Card"
+
+import Card from "./Card"
 import { createClient } from "contentful"
 
 interface HtmlContent {
@@ -42,7 +41,8 @@ interface ImageFile {
     url?: string
 }
 
-const Page = (Props: any) => {
+
+const CardA = (Props: any) => {
 
     const [HtmlData, setHtmlData] = useState<HtmlContent>()
 
@@ -57,30 +57,31 @@ const Page = (Props: any) => {
     }, [client]);
 
     useEffect(() => {
-        fetchData()
-            .then((res) => {
-                setHtmlData(res);
-            })
+        fetchData().then((res) => {
+            setHtmlData(res);
+        })
     }, []);
+
+    
+
 
     return (
         <>
             {
-               HtmlData && (
-                HtmlData.items && (
-                    <>
-                        <Header></Header>
-                        <div className='card'>
-                            <Card Title={HtmlData.items[0]?.fields?.heading} Desc={HtmlData.items[0]?.fields?.description} isEven={Props.isEven} Img={"https:" + (HtmlData.items[0].fields?.image?.fields?.file?.url)?.toString()} ></Card>
+                HtmlData && (
+                    HtmlData.items && (
+                        <>
+                            
+                            <div className='card'>
+                                <Card Title={HtmlData.items[1]?.fields?.heading} Desc={HtmlData.items[1]?.fields?.description} isEven={Props.isEven} Img={"https:" + (HtmlData.items[1].fields?.image?.fields?.file?.url)?.toString()} />
 
-                        </div>
-                        <Footer></Footer>
-                    </>
+                            </div>
+                        </>
+                    )
                 )
-            )
             }
         </>
     )
 }
 
-export default Page
+export default CardA

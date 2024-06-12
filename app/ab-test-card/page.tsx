@@ -1,23 +1,26 @@
 "use client"
 import React, { useEffect, useState } from 'react'
-import Version1 from "../Version1/page"
-import Version2 from "../Version2/page"
+import CardA from "../components/CardA"
+import CardB from "../components/CardB"
 import Cookies from 'js-cookie';
 import Statsig from 'statsig-js';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const Page = () => {
 
     const [version, setVersion] = useState<string>();
-    
+
     const render = () => {
         let showLargerText = Statsig.checkGate("show_larger_text")
         if (showLargerText) {
             let container = document.getElementsByClassName("container")
             let ele = container[0] as HTMLElement
-                ele.style.color = "blue"
-                ele.style.fontSize = "20px"
-                ele.style.boxShadow = "10px 10px 5px gray"
+            ele.style.color = "blue"
+            ele.style.fontSize = "20px"
+            ele.style.boxShadow = "10px 10px 5px gray"
         }
+
     }
 
     useEffect(() => {
@@ -42,20 +45,15 @@ const Page = () => {
         setVersion((isEvenVisitor ? 'version1' : 'version2'));
     }, []);
 
-    if (version === "version1") {
-        return (
-            <>
-                <Version1 isEven={true} />
-            </>
-        )
-    } else {
-        return (
-            <>
-                <Version2 isEven={false} w={300} />
-            </>
-        )
-
-    }
+    return (
+        <>
+            <Header />
+            {
+                version === "version1" ? (<CardA isEven={true} rFunc={render} />) : (<CardB isEven={false} w={300} />)
+            }
+            <Footer />
+        </>
+    )
 }
 
 export default Page
