@@ -53,15 +53,15 @@ const Page = (Props: any) => {
     })
 
     const fetchData = useCallback(async (): Promise<HtmlContent> => {
-        const dataEntry = await client.getEntries({ content_type: 'version' });
+        const dataEntry = await client.getEntries({ content_type: 'card' });
         return dataEntry;
     }, [client]);
 
     useEffect(() => {
         fetchData().then((res) => {
-                setHtmlData(res);
-            })
-    }, [fetchData]);    
+            setHtmlData(res);
+        })
+    }, []);
 
 
     return (
@@ -69,22 +69,15 @@ const Page = (Props: any) => {
             {
                 HtmlData && (
                     HtmlData.items && (
-                        HtmlData.items[1]?.fields?.description && (
-                            HtmlData.items[1]?.fields?.description?.content && (
-                                HtmlData.items[1]?.fields?.description?.content[0]?.content && (
-                                    <>
-                                        <Header></Header>
-                                        <div className='card'>
-                                            <Card Title={HtmlData.items[1]?.fields?.heading} Desc={HtmlData.items[1]?.fields?.description?.content[0]?.content[0]?.value} isEven={Props.isEven} Img={"https:" + (HtmlData.items[1]?.fields?.image?.fields?.file?.url)?.toString()} ></Card>
+                        <>
+                            <Header></Header>
+                            <div className='card'>
+                                <Card Title={HtmlData.items[1]?.fields?.heading} Desc={HtmlData.items[1]?.fields?.description} isEven={Props.isEven} Img={"https:" + (HtmlData.items[1].fields?.image?.fields?.file?.url)?.toString()} ></Card>
 
-                                        </div>
-                                        <Footer></Footer>
-                                    </>
-                                )
-                            )
-                        )
+                            </div>
+                            <Footer></Footer>
+                        </>
                     )
-
                 )
             }
         </>
