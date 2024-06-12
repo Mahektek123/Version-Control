@@ -15,25 +15,28 @@ const Card = (Props: any) => {
         ele.classList.add("bgblack")
     }
     const removeBlack = () => {
+
         ele.classList.remove("bgblack")
     }
-    
 
-        return (
-            <>
-                <div className='container' onMouseEnter={ Props.isEven ? turnBlack : bgGray} onMouseLeave={ Props.isEven ? removeBlack : removeGray}>
-                    <div className='CardTitle'>
-                        <h2><b> {Props.Title}</b></h2>
-                    </div>
-                    <div className='CardImg'>
-                        <Image priority src={Props.Img} width={Props.isEven ? 200 : 270} height={150} alt="Peacock Image"></Image>
-                    </div>
-                    <div className='CardDesc'>
-                        <p>{Props.Desc}</p>
-                    </div>
+
+
+    return (
+        <>
+            <div className={`container ${Props.isEven}`}>
+            {/* <div className={`container ${Props.isEven}`} onMouseEnter={Props.isEven ? turnBlack : bgGray} onMouseLeave={Props.isEven ? removeBlack : removeGray}> */}
+                <div className='CardTitle'>
+                    <h2><b> {Props.Title}</b></h2>
                 </div>
-            </>
-        )
+                <div className='CardImg'>
+                    <Image priority src={Props.Img} width={Props.isEven ? 200 : 270} height={150} alt="Peacock Image"></Image>
+                </div>
+                <div className='CardDesc'>
+                    <p>{Props.Desc}</p>
+                </div>
+            </div>
+        </>
+    )
 }
 
 export default Card
