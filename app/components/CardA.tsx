@@ -17,6 +17,7 @@ interface ContentData {
     description?: Desc,
     image?: Img
 }
+
 interface Desc {
     content?: ContentForDesc[]
 }
@@ -61,9 +62,6 @@ const CardA = (Props: any) => {
             setHtmlData(res);
         })
     }, []);
-
-    
-
 
     return (
         <>

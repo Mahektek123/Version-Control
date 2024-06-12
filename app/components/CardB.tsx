@@ -18,6 +18,7 @@ interface ContentData {
     description?: Desc,
     image?: Img
 }
+
 interface Desc {
     content?: ContentForDesc[]
 }

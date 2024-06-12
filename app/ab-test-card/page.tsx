@@ -20,7 +20,6 @@ const Page = () => {
             ele.style.fontSize = "20px"
             ele.style.boxShadow = "10px 10px 5px gray"
         }
-
     }
 
     useEffect(() => {

@@ -5,9 +5,7 @@ const Card = (Props: any) => {
     
     useEffect(()=> {
         const container = document?.getElementsByClassName("container")
-        console.log("container ",container)
         let ele = container[0] as HTMLElement
-        console.log("ele ", ele)
             const bgGray = () => { 
             ele?.classList.add("bgGray")
         }
@@ -31,12 +29,9 @@ const Card = (Props: any) => {
         }
     },[])
 
-   
-
     return (
         <>
             <div className="container">
-            {/* <div className={`container `} onMouseEnter={Props.isEven ? turnBlack : bgGray} onMouseLeave={Props.isEven ? removeBlack : removeGray}> */}
                 <div className='CardTitle'>
                     <h2><b> {Props.Title}</b></h2>
                 </div>
