@@ -2,29 +2,10 @@ import React from 'react'
 import Image from 'next/image'
 
 const Card = (Props: any) => {
-    const container = document.getElementsByClassName("container")
-    let ele = container[0] as HTMLElement
-    const bgGray = () => {
-        ele.classList.add("bgGray")
-    }
-    const removeGray = () => {
-        ele.classList.remove("bgGray")
-    }
-
-    const turnBlack = () => {
-        ele.classList.add("bgblack")
-    }
-    const removeBlack = () => {
-
-        ele.classList.remove("bgblack")
-    }
-
-
-
+    
     return (
         <>
             <div className={`container ${Props.isEven}`}>
-            {/* <div className={`container ${Props.isEven}`} onMouseEnter={Props.isEven ? turnBlack : bgGray} onMouseLeave={Props.isEven ? removeBlack : removeGray}> */}
                 <div className='CardTitle'>
                     <h2><b> {Props.Title}</b></h2>
                 </div>
